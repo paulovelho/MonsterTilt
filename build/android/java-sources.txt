@@ -1,0 +1,8 @@
+"/Users/paulovelho/Projects/Titanium_Studio_Workspace/monster_tilt/build/android/gen/android/support/v7/appcompat/R.java"
+"/Users/paulovelho/Projects/Titanium_Studio_Workspace/monster_tilt/build/android/gen/com/platypusweb/monstertilt/ApplicationStylesheet.java"
+"/Users/paulovelho/Projects/Titanium_Studio_Workspace/monster_tilt/build/android/gen/com/platypusweb/monstertilt/AssetCryptImpl.java"
+"/Users/paulovelho/Projects/Titanium_Studio_Workspace/monster_tilt/build/android/gen/com/platypusweb/monstertilt/Monster_tiltActivity.java"
+"/Users/paulovelho/Projects/Titanium_Studio_Workspace/monster_tilt/build/android/gen/com/platypusweb/monstertilt/Monster_tiltAppInfo.java"
+"/Users/paulovelho/Projects/Titanium_Studio_Workspace/monster_tilt/build/android/gen/com/platypusweb/monstertilt/Monster_tiltApplication.java"
+"/Users/paulovelho/Projects/Titanium_Studio_Workspace/monster_tilt/build/android/gen/com/platypusweb/monstertilt/R.java"
+"/Users/paulovelho/Projects/Titanium_Studio_Workspace/monster_tilt/build/android/gen/ti/modules/titanium/ui/R.java"

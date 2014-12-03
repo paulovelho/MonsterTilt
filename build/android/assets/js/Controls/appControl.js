@@ -1,0 +1,1 @@
+function AppControl(){var e,r,n,o=5;return start=function(){e=require("js/Views/ApplicationWindow.js");var a=require("js/Views/Scenery.js");r=new a(o),e.addView(r.getGrid());var s=require("js/Controls/GameManager.js");n=new s(r),n.startControls(),n.startGame()},self}module.exports=AppControl;

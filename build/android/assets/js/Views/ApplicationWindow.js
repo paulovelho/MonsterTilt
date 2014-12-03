@@ -1,0 +1,1 @@
+function ApplicationWindow(){function e(){n=new Ti.UI.createWindow({backgroundColor:"#000"}),n.open()}var n,o=function(e){n.add(e)};return e(),{objType:"Application Window",addView:function(e){o(e)}}}module.exports=new ApplicationWindow;
