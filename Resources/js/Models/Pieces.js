@@ -4,10 +4,12 @@ Piece = function(){
 	this.image = "";
 	this.position = null;
 	this.pieceType = "blank";
+	this.onBoard = false;
 	this.print = function(){
 		console.info("printing piece " + this.pieceType);
 	};
 	this.build = function(print_fn, position, scenery){
+		if(this.onBoard) return;
 		this.position = position;
 		this.view = print_fn(this, position);
 		if(scenery != undefined){

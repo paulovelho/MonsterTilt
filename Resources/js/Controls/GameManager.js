@@ -42,10 +42,21 @@ var gameManager = function(scn){
 			}
 		}		
 	};
-	var PrintPieces = function(){
+	var PrintPieces = function(interval){
+		var time = 1;
+		if(interval == undefined){
+			interval = 0;
+		} else {
+			interval = 30;
+		}
 		WithEachPiece(function(i, j, piece){
-			if(piece==null) return;
-			piece.build(PiecePrinter.print, {i: i, j: j}, scenery);
+			if(piece == null) return;
+			(function insert(i, j, piece, time){
+				setTimeout(function(){
+					piece.build(PiecePrinter.print, {i: i, j: j}, scenery);
+				}, time);
+			})(i, j, piece, time);
+			time = time + interval;
 		});
 	};
 	var StartMap = function(){
@@ -83,10 +94,16 @@ var gameManager = function(scn){
 	};
 	var Win = function(){
 		var message = new Messages.win();
+		message.addAction(function(){
+			RestartGame();
+		});
 		scenery.showMessage(message);
 	};
 	var Lose = function(){
 		var message = new Messages.lose();
+		message.addAction(function(){
+			RestartGame();
+		});
 		scenery.showMessage(message);
 	};
 	var CheckWin = function(){
@@ -107,10 +124,10 @@ var gameManager = function(scn){
 		} else return false;
 	};
 	var NextTurn = function(){
+		PrintPieces(0);
 		if(CheckWin()){
-			PrintPieces();
 			return;
-		} 
+		}
 		var qtdCoins = Math.ceil(qtdPieces/20);
 		ThrowCoins(qtdCoins);
 		WithEachPiece(function(i, j, piece){
@@ -122,17 +139,23 @@ var gameManager = function(scn){
 				}
 			}
 		});
-		PrintPieces();
+		PrintPieces(30);
 	};
 
 	var StartGame = function(){
 		StartMap();
-		PrintPieces();
+		PrintPieces(30);
+	};
+	var RestartGame = function(){
+		removeAllPieces();
+		startNullMap();
+		StartGame();		
 	};
 	var removeAllPieces = function(){
 		WithEachPiece(function(i, j, piece){
+			if(piece!=null)
+				piece.remove(scenery);
 			map[i][j] = null;
-			piece.remove(scenery);
 		});
 	};
 	
@@ -178,6 +201,7 @@ var gameManager = function(scn){
 			var qtdSwords = 0;
 			for(var i=(gridSize-1); i>=0; i--){
 				var piece = map[i][j];
+				if(piece == null) continue;
 				switch(piece.pieceType){
 					case "skull":
 						qtdMonsters ++;
@@ -217,6 +241,7 @@ var gameManager = function(scn){
 			var qtdSwords = 0;
 			for(var i=0; i<gridSize; i++){
 				var piece = map[i][j];
+				if(piece == null) continue;
 				switch(piece.pieceType){
 					case "skull":
 						qtdMonsters ++;
@@ -255,6 +280,7 @@ var gameManager = function(scn){
 			var qtdSwords = 0;
 			for(var j=(gridSize-1); j>=0; j--){
 				var piece = map[i][j];
+				if(piece == null) continue;
 				switch(piece.pieceType){
 					case "skull":
 						qtdMonsters ++;
@@ -293,6 +319,7 @@ var gameManager = function(scn){
 			var qtdSwords = 0;
 			for(var j=0; j<gridSize; j++){
 				var piece = map[i][j];
+				if(piece == null) continue;
 				switch(piece.pieceType){
 					case "skull":
 						qtdMonsters ++;

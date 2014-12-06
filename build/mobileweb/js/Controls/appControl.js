@@ -5,7 +5,7 @@ function AppControl(){
 	var scenery;
 	var gm;
 	
-	var gridSize = 5;
+	var gridSize = 4;
 
 	start = function(){
 		view = require("js/Views/ApplicationWindow.js");

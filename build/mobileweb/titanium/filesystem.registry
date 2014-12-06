@@ -1,4 +1,4 @@
-ts	1417541877000
+ts	1417878138000
 Default-Landscape.png	446500
 Default-Portrait.png	56963
 Default.png	87123
@@ -18,15 +18,15 @@ images
 	sword.gif	7723
 js
 	Controls
-		GameManager.js	7169
+		GameManager.js	7714
 		appControl.js	494
 	Models
-		Pieces.js	1086
+		Pieces.js	1136
 	Views
 		ApplicationWindow.js	363
-		Messages.js	848
-		Piece.js	1342
-		Scenery.js	3807
+		Messages.js	1054
+		Piece.js	1344
+		Scenery.js	4214
 themes
 	common.css	7631
 	default
@@ -182,4 +182,4 @@ titanium
 	dependencies.json	10476
 	package.json	660
 titanium.css	8443
-titanium.js	481271
+titanium.js	481272

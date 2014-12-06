@@ -6,7 +6,16 @@ Message = function(){
 		opacity: '0.7',
 		zIndex: 30
 	});
+	this.button = Ti.UI.createButton({
+		title: '  Play again  ',
+		top: 40,
+		padding: 30
+	});
 	this.label = null;
+	this.addAction = function(evt){
+		this.button.addEventListener("click", evt);
+		this.view.add(this.button);
+	};
 	this.get = function(){
 		this.view.add(this.label);
 		return this.view;

@@ -9,6 +9,7 @@ Scenery = function(size){
 	var tileSize;
 	
 	var piecesView;
+	var messageView;
 	
 	var borderSize = 3;
 	var marginLeft;
@@ -90,28 +91,30 @@ Scenery = function(size){
 			opacity: 1,
 			zIndex:15
 		});
-		
 	};
 	
 	var AddPiece = function(pieceView){
-		
+//		console.info(pieceView);
 		piecesView.add(pieceView);
-
-/*		
-		var originalW = pieceView.getWidth();
-		var originalH = pieceView.getHeight();
-		pieceView.setWidth(0);
-		pieceView.setHeight(0);
-		piecesView.add(pieceView);
-		
-		var animationSetup = {duration: 700, height: originalH, width: originalW};
-		console.info(animationSetup);
-		var popFrom = Ti.UI.createAnimation(animationSetup);
-		pieceView.animate(popFrom);
-*/
-		
+		// no animation was set...
+		/*
+		pieceView.setTransform(Titanium.UI.create2DMatrix().scale(0.1) );
+		pieceView.animate({
+			transform: Titanium.UI.create2DMatrix().scale(1.3),
+			duration: 200,
+			curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
+		}, function(){
+			pieceView.animate({
+				transform: Titanium.UI.create2DMatrix().scale(1),
+				duration: 100,
+				curve: Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT
+			});
+		});
+		*/
 	};
 	var RemovePiece = function(pieceView){
+//		piecesView.remove(pieceView);
+		// no animation as well...
 		var viewSize = pieceView.getHeight();
 		var viewTop = pieceView.getTop();
 		var viewLeft = pieceView.getLeft();
@@ -138,8 +141,11 @@ Scenery = function(size){
 		view.add(piecesView);
 		return view;
 	};
-	var ShowMessage = function(messageView){
+	var ShowMessage = function(){
 		view.add(messageView);
+	};
+	var RemoveMessage = function(){
+		view.remove(messageView);
 	};
 	
 	return {
@@ -164,13 +170,21 @@ Scenery = function(size){
 			return scenerySize;
 		},
 		addPiece: function(piece){
-			AddPiece(piece.view);
+			if(!piece.onBoard)
+				AddPiece(piece.view);
+			piece.onBoard = true;
 		},
 		removePiece: function(piece){
 			RemovePiece(piece.view);
+			piece.onBoard = false;
 		},
 		showMessage: function(message){
-			ShowMessage(message.get());
+			message.addAction(this.removeMessage);
+			messageView = message.get(); 
+			ShowMessage();
+		},
+		removeMessage: function(){
+			RemoveMessage();
 		}
 	};
 	
