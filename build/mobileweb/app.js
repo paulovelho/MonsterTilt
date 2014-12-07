@@ -1,4 +1,4 @@
 (function(){
-	var appControl = require("js/Controls/appControl.js");
+	var appControl = require('js/Controls/appControl');
 	new appControl().start();	
 })();

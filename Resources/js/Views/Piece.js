@@ -29,6 +29,7 @@ PiecePrinter = function(){
 	};
 	var Move = function(piece, position, callback){		
 		var view = piece.view;
+		if(view == null) return;
 		var fTop = pieceMargin + (tileSize * position.i);
 		var fLeft = pieceMargin + (tileSize  * position.j);
 		var move = Ti.UI.createAnimation({

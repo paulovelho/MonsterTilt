@@ -3,9 +3,9 @@ Scenery = function(size){
 	var gridSize = size;
 
 	var view;
-	var screenWidth = Titanium.Platform.DisplayCaps.platformWidth;
-	var screenHeight = Titanium.Platform.DisplayCaps.platformHeight;
-	var scenerySize;
+	var screenWidth;
+	var screenHeight;
+	var scenerySize = 250;
 	var tileSize;
 	
 	var piecesView;
@@ -64,8 +64,26 @@ Scenery = function(size){
 			view.add(hBorder);
 		}
 	};
-	
+
+	function DPUnitsToPixels(TheDPUnits){
+	    if ( Titanium.Platform.displayCaps.dpi > 160 )
+	          return (TheDPUnits * (Titanium.Platform.displayCaps.dpi / 160));
+	    else 
+	        return TheDPUnits;
+	}
+	function PixelsToDPUnits(ThePixels){
+	    if ( Titanium.Platform.displayCaps.dpi > 160 )
+	        return (ThePixels / (Titanium.Platform.displayCaps.dpi / 160));
+	    else 
+	        return ThePixels;
+	}
+ 	
 	var createScenery = function(){
+		screenWidth = Ti.Platform.displayCaps.platformWidth;
+		screenHeight = Ti.Platform.displayCaps.platformHeight;
+		screenWidth = PixelsToDPUnits(screenWidth);
+		screenHeight = PixelsToDPUnits(screenHeight);
+//		console.info("screen: " + screenWidth + "x" + screenHeight);
 		if(screenWidth > screenHeight){
 			scenerySize = screenHeight;
 			marginLeft = (screenWidth/2)-(scenerySize/2);
@@ -73,6 +91,7 @@ Scenery = function(size){
 			scenerySize = screenWidth;
 			marginLeft = 0;
 		}
+		console.info("building scenery - size: "+scenerySize);
 		tileSize = (scenerySize / gridSize) - (borderSize*2);
 		
 		view = Ti.UI.createView({

@@ -1,1 +1,1 @@
-!function(){var r=require("js/Controls/appControl.js");(new r).start()}();
+!function(){var r=require("js/Controls/appControl");(new r).start()}();

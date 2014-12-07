@@ -28,21 +28,21 @@ Piece = function(){
 
 Coin = function(){
 	this.pieceType = "coin";
-	this.image = "images/coin.jpg";
+	this.image = "/images/coin.jpg";
 };
 Coin.prototype = new Piece();
 Coin.prototype.constructor = Coin;
 
 Sword = function(){
 	this.pieceType = "sword";
-	this.image = "images/sword.gif";
+	this.image = "/images/sword.gif";
 };
 Sword.prototype = new Piece();
 Sword.prototype.constructor = Sword;
 
 Skull = function(){
 	this.pieceType = "skull";
-	this.image = "images/goblin.jpg";
+	this.image = "/images/goblin.jpg";
 };
 Skull.prototype = new Piece();
 Skull.prototype.constructor = Skull;

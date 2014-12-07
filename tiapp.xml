@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.platypusweb.monstertilt</id>
-    <name>monster_tilt</name>
+    <name>Monster Tilt</name>
     <version>1.0</version>
     <publisher>platypus games</publisher>
     <url>http://games.platypusweb.com.br</url>
@@ -38,7 +38,14 @@
             </dict>
         </plist>
     </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+	<android xmlns:android="http://schemas.android.com/apk/res/android">
+		<tool-api-level>14</tool-api-level>
+		<manifest android:installLocation="preferExternal" android:versionCode="1" android:versionName="1" package="com.platypusweb.monstertilt" xmlns:android="http://schemas.android.com/apk/res/android">
+			<uses-sdk android:minSdkVersion="10" android:targetSdkVersion="18"/>
+			<application android:hardwareAccelerated="true"/>
+		</manifest>
+	</android>
+ 
     <mobileweb>
         <precache/>
         <splash>

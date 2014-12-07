@@ -10,7 +10,7 @@ var require = {
 		description: "platypus games",
 		guid: "e139667f-076c-4b3b-86b4-139d819f5873",
 		id: "com.platypusweb.monstertilt",
-		name: "monster_tilt",
+		name: "Monster Tilt",
 		names: {},
 		publisher: "platypus games",
 		url: "http://games.platypusweb.com.br",
@@ -37,7 +37,7 @@ var require = {
 	packages: [{"name":"Ti","location":"./titanium","main":"./Ti"}],
 	project: {
 		id: "com.platypusweb.monstertilt",
-		name: "monster_tilt"
+		name: "Monster Tilt"
 	},
 	ti: {
 		analyticsPlatformName: "mobileweb",

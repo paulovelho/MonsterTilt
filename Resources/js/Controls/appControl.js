@@ -5,23 +5,23 @@ function AppControl(){
 	var scenery;
 	var gm;
 	
-	var gridSize = 4;
+	var gridSize = 5;
 
-	start = function(){
-		view = require("js/Views/ApplicationWindow.js");
+	this.start = function(){
+		view = require("js/Views/ApplicationWindow");
 		
-		var Scenery = require("js/Views/Scenery.js");
+		var Scenery = require("js/Views/Scenery");
 		scenery = new Scenery(gridSize);
 		view.addView(scenery.getGrid());
 		
-		var gameManager = require("js/Controls/GameManager.js");
+		var gameManager = require("js/Controls/GameManager");
 		gm = new gameManager(scenery);
 		gm.startControls();
 		gm.startGame();
 		
 	};
 	
-	return self;
+	return this;
 	
 };
 

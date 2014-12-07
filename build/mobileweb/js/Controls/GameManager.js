@@ -15,10 +15,10 @@ var gameManager = function(scn){
 	var winner;
 	
 	function initialize(){
-		pieces = require("js/Models/Pieces.js");
-		PiecePrinter = require("js/Views/Piece.js");
+		pieces = require("js/Models/Pieces");
+		PiecePrinter = require("js/Views/Piece");
 		PiecePrinter.setup(scenery);
-		Messages = require("js/Views/Messages.js");
+		Messages = require("js/Views/Messages");
 	};
 	
 	var startNullMap = function(){
@@ -176,6 +176,7 @@ var gameManager = function(scn){
 				break;
 			}
 		});
+		// for web:
 		window.document.addEventListener("keydown", function(e){
 			switch(e.keyCode){
 				case 40:
